@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "This is my react learning through namaste react course by akshay saini",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "start": "parcel \"LECTURE 3/index.html\"",
+    "build": "parcel build \"LECTURE 3/index.html\""
   },
   "repository": {
     "type": "git",
