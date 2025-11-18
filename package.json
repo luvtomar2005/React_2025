@@ -1,0 +1,29 @@
+{
+  "name": "react_2025",
+  "version": "1.0.0",
+  "description": "This is my react learning through namaste react course by akshay saini",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luvtomar2005/React_2025.git"
+  },
+  "keywords": [
+    "react",
+    "learning"
+  ],
+  "author": "Luv Tomar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luvtomar2005/React_2025/issues"
+  },
+  "homepage": "https://github.com/luvtomar2005/React_2025#readme",
+  "devDependencies": {
+    "parcel": "^2.16.1"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  }
+}
