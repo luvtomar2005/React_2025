@@ -1,0 +1,25 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: #f5f5f5;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.logo-image {
+  width: 50px;
+}
+
+.search-input {
+  width: 300px;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+}
+
+.user-icon {
+  width: 45px;
+  border-radius: 50%;
+}
