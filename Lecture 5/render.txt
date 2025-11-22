@@ -1,0 +1,144 @@
+Your component BEFORE clicking the button
+
+When React first loads the page, it runs:
+
+const [listOfRestaurants , setListRestaurants] = useState(restaurantList)
+
+
+This does two things:
+
+1. It stores restaurantList as the initial state
+2. It renders the UI using that state
+
+Then your JSX is returned:
+
+<div className="rest-container">
+  {listOfRestaurants.map(...)}
+</div>
+
+
+So React shows all restaurants.
+
+This is the first render.
+
+🔥 What happens WHEN YOU CLICK the button
+
+You run this code:
+
+const filteredList = listOfRestaurants.filter(
+  (res) => res.data.avgRating > 4
+);
+
+setListRestaurants(filteredList);
+
+
+Two critical things happen here:
+
+1️⃣ React updates the state
+
+setListRestaurants(filteredList) tells React:
+
+“Hey React, the state has changed.”
+
+React then queues a re-render.
+
+React stores the NEW state internally:
+
+Before click:
+
+listOfRestaurants = FULL LIST
+
+
+After click:
+
+listOfRestaurants = ONLY with avgRating > 4
+
+2️⃣ React RE-RUNS your component function
+
+This is the MOST important part.
+
+React calls:
+
+Body()
+
+
+all over again.
+
+Yes — the entire function runs from top to bottom.
+
+But note:
+
+useState() DOES NOT RESET
+
+React gives you the new value from the previous update.
+
+So during this second render:
+
+const [listOfRestaurants , setListRestaurants] = useState(restaurantList)
+
+
+does NOT use the original restaurantList.
+Instead React injects the NEW filtered list.
+
+3️⃣ Your JSX is regenerated with updated state
+
+Your map now runs on THE FILTERED LIST:
+
+listOfRestaurants.map((restaurant) => (
+  <RestaurantCard key={...} resData={restaurant} />
+))
+
+
+Which means fewer RestaurantCard components are returned.
+
+This new JSX is compared to the old JSX.
+
+4️⃣ React updates ONLY the parts of the UI that changed
+
+React uses its reconciliation (diffing) algorithm:
+
+Cards that exist in both lists and have the same key → React keeps them
+
+Cards that no longer exist (because filter removed them) → React deletes them
+
+Cards that are new → React adds them
+
+This is why the key matters — it helps React match which cards stay or go.
+
+5️⃣ Browser shows the updated UI
+
+After reconciliation, the UI now displays only the restaurants with rating > 4.
+
+This is the second render — triggered by the state update.
+
+🔥 VISUAL REPRESENTATION OF YOUR RENDER FLOW
+Initial Render:
+Body()
+   |
+   → listOfRestaurants = full list
+   → render full list of RestaurantCard
+
+Click button:
+filter → filteredList
+setListRestaurants(filteredList)
+
+Re-render triggered:
+Body()     ← runs AGAIN
+   |
+   → listOfRestaurants = filtered list (React gives you updated state)
+   → render only filtered RestaurantCard items
+
+
+UI updates automatically.
+
+🎯 Final Summary (memorize this)
+✔ React re-renders WHEN — and ONLY WHEN — state changes
+✔ Re-render means React calls your component function again
+✔ The updated state value is used in the new render
+✔ New JSX replaces old JSX by comparing differences
+✔ The UI updates only where data changed
+
+This is the exact difference between:
+
+❌ normal variables → NO re-render
+✔ state variables → re-render
