@@ -1,22 +1,23 @@
+// Using the local state variable  -> super powerful variable
 
-    // Using the local state variable  -> super powerful variable
+// Now as we will be using second approach so we will go use the second react hook which is useeffect
 
-    // Now as we will be using second approach so we will go use the second react hook which is useeffect
+// the syntax of use effect is as followed it contains a callback function which will be printed after our page renders
+// so this will help us using the second approach where we try to fetch our data first 
 
- // the syntax of use effect is as followed it contains a callback function which will be printed after our page renders
-//  so this will help us using the second approach where we try to fetch our data first 
-
-
-      // Now we have fetched the api so now we will updates the listofRestaurant part 
-      // So react will re-render the data and the data will be shown to us..
-
+// Now we have fetched the api so now we will updates the listofRestaurant part 
+// So react will re-render the data and the data will be shown to us..
 
 import Shimmer from "./Shimmer";
 import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCards";
 
 const Body = () => {
-  const [restaurants, setRestaurants] = useState([]);
+
+  // 🔑 Akshay-style fix: two states
+  const [allRestaurants, setAllRestaurants] = useState([]);     // original data
+  const [restaurants, setRestaurants] = useState([]);           // filtered data
+
   const [loading, setLoading] = useState(true);
 
   // Creating local state variable for our search button
@@ -47,9 +48,13 @@ const Body = () => {
           )
           ?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
+      // 🔑 store original + filtered list
+      setAllRestaurants(restaurantList || []);
       setRestaurants(restaurantList || []);
+
     } catch (err) {
       console.error("Failed to fetch restaurants", err);
+      setAllRestaurants([]);
       setRestaurants([]);
     } finally {
       setLoading(false);
@@ -63,13 +68,19 @@ const Body = () => {
   return (
     <div className="body">
       <div className="filter">
-        <div className = "search">
-          <input type = "text" className = "search-box" value= {searchText} onChange = {(e) =>{
-            setSearchText(e.target.value);
-          }}/>
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
           <button
             onClick={() => {
-              const filtered = restaurants.filter((res) =>
+              // 🔑 SEARCH ALWAYS RUNS ON ORIGINAL DATA
+              const filtered = allRestaurants.filter((res) =>
                 res.info.name
                   .toLowerCase()
                   .includes(searchText.toLowerCase())
@@ -80,10 +91,12 @@ const Body = () => {
             Search
           </button>
         </div>
+
         <button
           className="filter-btn"
           onClick={() => {
-            const filtered = restaurants.filter(
+            // 🔑 FILTER ALSO RUNS ON ORIGINAL DATA
+            const filtered = allRestaurants.filter(
               (res) => Number(res?.info?.avgRating) > 4
             );
             setRestaurants(filtered);
@@ -106,4 +119,3 @@ const Body = () => {
 };
 
 export default Body;
-
