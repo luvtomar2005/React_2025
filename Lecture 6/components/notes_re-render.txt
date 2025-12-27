@@ -1,0 +1,148 @@
+1. Why State Is Needed in React
+
+React UI is dynamic
+
+UI must change when data changes
+
+React must remember values between renders
+
+👉 Normal variables cannot do this
+👉 State exists to solve this problem
+
+2. Why Normal Variables Fail
+let btnName = "Login";
+
+
+Updating a normal variable does not trigger re-render
+
+React does not track normal variables
+
+UI remains unchanged
+
+Conclusion:
+Normal JS variables are invisible to React.
+
+3. What State Actually Is
+
+State = a variable that React tracks
+
+When state changes:
+
+React detects the change
+
+Component function runs again
+
+JSX is recalculated
+
+UI updates automatically
+
+4. Declaring State
+const [btnName, setBtnName] = useState("Login");
+
+
+btnName → current state value
+
+setBtnName → function to update state
+
+State value persists across re-renders
+
+5. Why setState Is Mandatory
+
+✅ Correct:
+
+setBtnName("Logout");
+
+
+❌ Wrong:
+
+setBtnName = "Logout";
+
+
+React re-renders only when setter is called
+
+Direct assignment breaks React’s update mechanism
+
+6. Execution Flow (Login / Logout)
+Initial Render
+btnName = "Login"
+
+
+UI:
+
+<button>Login</button>
+
+On Click
+setBtnName("Logout");
+
+
+React:
+
+Marks component for re-render
+
+Runs component again
+
+Re-render
+btnName = "Logout"
+
+
+UI:
+
+<button>Logout</button>
+
+7. Why Login / Logout Is a Perfect Example
+
+Simple state change
+
+Clear visual feedback
+
+Demonstrates re-rendering
+
+Shows state persistence
+
+8. Declarative vs Imperative
+Imperative (Vanilla JS)
+element.innerText = "Logout";
+
+
+→ “Do this now”
+
+Declarative (React)
+{btnName}
+
+
+→ “UI depends on state”
+
+React handles how to update DOM.
+
+9. State vs Normal Variables
+Feature	Normal Variable	State
+Triggers re-render	❌ No	✅ Yes
+Tracked by React	❌ No	✅ Yes
+Persists on render	❌ No	✅ Yes
+Used for UI	❌ No	✅ Yes
+10. Core Rules (Must Remember)
+
+If UI changes → use state
+
+Never mutate state directly
+
+Always use setter function
+
+UI must read from state
+
+React re-renders only on state updates
+
+11. Common Beginner Mistakes
+
+Using normal variables for UI
+
+Assigning to state directly
+
+Writing event handlers incorrectly
+
+Expecting React to auto-detect changes
+
+12. One-Line Mental Model
+
+UI = Function(state)
+If state changes → UI updates.

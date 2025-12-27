@@ -1,0 +1,72 @@
+
+This is what we are doing in this appraoch
+So now as we can see we are getting the data from Restauranct cards which is the mock data
+so we will now see how we can use the live or change the data dynamically  
+
+There are two approaches as First Page Loads -> Api Call -> Render the page
+
+And the second approach is we Loads -> Render the page -> Api Call -> ReRender
+
+In react we will be using the second approach 
+
+hook -> It is nothing a normal javascript which is used for specific purpose
+
+
+ const [btnName, setBtnName] = useState("Login"); suppose we have this line so a question can be put up
+ how we are changing the constant variable 
+ so when this runs react will call the component again and now the btnName will be the new variable 
+
+ React is fast because the react fibre the new re-conciliation process helps to only update the 
+ portion of the dom which is only essential just like in the login logout case only the button
+ has changed the not the full page or any other logo has changed 
+
+So that is the reason why react is so fastt
+
+Why to use the usestate in search text?
+What YOU expect:
+
+searchText contains latest input
+
+Button uses it
+
+What ACTUALLY happens:
+
+Component re-renders
+
+searchText is reset to ""
+
+Value is lost
+
+❌ Search breaks.
+
+
+“Whenever something changes on the UI, we need state.”
+
+Why?
+Because React must:
+
+Detect the change
+
+Re-run the component
+
+Update the UI
+
+Normal variables cannot do this.
+
+What Problem useState Solves (Exactly)
+
+Without useState:
+
+React does not know what changed
+
+React does not re-render
+
+UI stays stale
+
+With useState:
+
+React tracks the variable
+
+React re-renders on update
+
+UI updates automatically
