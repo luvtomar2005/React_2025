@@ -1,0 +1,38 @@
+In this section we have learnt about the react hook
+so how do we identify whether it is a hook or not
+so anytime you see a use before any thing it means it is a hook....
+
+Now the problem we can have is we can we go to say like /about page
+so the header will not be here but we want header should be there always and the body should load below so 
+in that case we will use the children route
+
+Now let us say i click on about button in y page so i want it to take me to the about page so for that we can use the 
+anchor but what it does it will reload our full page and we dont want it to that so instead what we wil do is 
+we will use the link tag
+
+
+There are two types of routing are there -:
+1. Client side routing ->
+Browser loads / once
+JS bundle downloads
+When URL changes to /about:
+NO server request
+Router (JS) intercepts it
+Component swaps in the browser
+Page does NOT reload
+
+
+2. Server side routing ->
+
+Browser requests /about
+Request goes to server
+Server:
+runs backend code
+selects route
+renders HTML
+Server sends new HTML page
+Browser reloads the page
+Example stack
+
+.. React is also known as single page application
+
