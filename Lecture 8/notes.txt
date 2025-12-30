@@ -1,0 +1,21 @@
+In this section i have leanrt about the class based components it is the older way of writing the components
+But a lot companies works on older projects so in interview they ask this a lot
+Earlier we used to write the functional component till the last lecture
+
+And functional componets ar easy to write
+
+Class based component is a class which has render method which returns a piece of jsx just like 
+functional component is the normal javscirpt fucntional which returns the jsx
+
+Basically in the class based componemt the html will be there and will be rendered to the page
+
+
+Important question why do we write the super props
+
+Important quesiton for interview
+while mounting or loading the page first how the child cycle works or how the things will be called
+Parents Constructor -> Parents Render -> Child Constructor -> Child Render
+
+Seocondly , Parent Constructor -> Parents render -> Child Constructor -> Child Render -> Child Did Mount -> Parents DidMount
+Basically React finishes children first then mark parent as mounted..
+
