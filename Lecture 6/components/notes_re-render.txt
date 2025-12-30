@@ -146,3 +146,13 @@ Expecting React to auto-detect changes
 
 UI = Function(state)
 If state changes → UI updates.
+
+
+
+useState is a React Hook that:
+
+Creates a state variable
+
+Preserves its value between re-renders
+
+Triggers a re-render when that value changes
