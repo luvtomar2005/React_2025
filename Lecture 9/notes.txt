@@ -1,0 +1,30 @@
+In this section i have learnt about how can i write my custom hooks and make my code more
+readable and maintainable and modular
+Writing the custom hook doesn't change the functionality of the code it only changes the 
+the way of writing your code so that it becomes more modular and easable to read.
+
+A custom hook is just a normal 
+JavaScript function that uses React hooks internally to extract reusable logic.
+
+First what we did is we changed in restaurant card menu file go and see what we have changed
+
+
+When we are creating any hook try to frame the contract of the hook First
+by means of contract i mean what is the input and what is the output of the hook.. for example
+in uesRestauranntMenu hook we have resId as input and resInfo as output
+
+
+when we are creating a big production ready app or project there might be thousands of component
+and our bundler will keep them into a single js file so it is very important to reduce the size of the file
+but we have two option either we do bundling or non-building
+
+if we do bundling -> it will help our browser to not load thousands of file..
+and we dont want to put thousands file into one file so we will try to make smaller bundler for these 
+files -> this process is known as : 
+
+Chunking or code splitting or Dynamic bundling or 
+Lazy loading -> only load when required for example loading the grocery code when needed
+
+Lazy loading is very interview as per the bundling process because interviewer expect you to know about this 
+and dont forget to tell interviewer about this 
+
