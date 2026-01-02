@@ -11,6 +11,14 @@ Basically in the class based componemt the html will be there and will be render
 
 
 Important question why do we write the super props
+Ans -> Because javascript will not let us use the this keyword which is the rule of ES6..
+
+Why super(props) and not just super()?
+
+Because React.Component needs props to initialize this.props.
+super(props) → this.props is defined
+super() → this.props is undefined inside constructor
+
 
 Important quesiton for interview
 while mounting or loading the page first how the child cycle works or how the things will be called
@@ -19,3 +27,36 @@ Parents Constructor -> Parents Render -> Child Constructor -> Child Render
 Seocondly , Parent Constructor -> Parents render -> Child Constructor -> Child Render -> Child Did Mount -> Parents DidMount
 Basically React finishes children first then mark parent as mounted..
 
+
+why comopnent didMount is used for Api calling ?
+and -> why exactly componentDidMount()?
+
+Because it satisfies all constraints:
+1️⃣ Runs after first render
+UI renders immediately (better UX)
+DOM exists
+No blocking
+2️⃣ Runs only once (on mount)
+
+Perfect for:
+Initial data fetching
+Subscriptions
+Timers
+3️⃣ Safe place for side-effects
+
+React explicitly designed it for:
+API calls
+Event listeners
+Non-React code
+
+
+Why not in constructor ?
+Ans -> Constructor can run multiple times in future React versions
+DOM is not ready
+Side-effects in constructor break React’s async rendering model\
+
+
+Why not in render() ?
+and -> render() can run many times
+Every state update → render → API call → state update → infinite loop
+You’ll DDOS your own backend
