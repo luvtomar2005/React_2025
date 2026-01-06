@@ -1,0 +1,9 @@
+In this section we have created a logic for accordion but i will not be shown in ui
+becuase we are not getting the restaurant card live data in our code
+
+React gives us the superpower which is also known as react context by which we don't have to 
+deal with props drilling(refter react documentation) and we can acess any data or anything whether 
+it is on any node 
+
+context is a global place where all data is stored
+
