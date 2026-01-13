@@ -1,0 +1,22 @@
+First of all as accordion is not working so what i did for learning i only added the 
+mock data so learning becomes easier
+
+Now in this section we will learn about the Redux 
+Redux and react are two complete different libaries but they are generally used
+together most in industry for better perfomances and for creating the best software 
+together so 
+
+We will make a function like add to cart 
+
+Redux store is a big whole object and it is kept in a central global place
+But it is not a good way to store a big object inside the global place so we have slices
+in redux store which is small portion and we create multiple slices in our redux store
+
+The slices are logical partition in our app for keeping the data seperate 
+
+In case of cart slice when we click the add button an action is being dispatched 
+and it calls reducer function and this is the writing the data for reading the data 
+we will use the selector and this selector will basically give us the data and which will
+modify the component
+
+and this process of using the selector is known as subscribing to the  store..
