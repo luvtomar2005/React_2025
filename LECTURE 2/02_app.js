@@ -20,7 +20,7 @@
 - Different dev and prod bundles
 */
 
-
+// Getting started
 import React from "react";
 import ReactDOM from "react-dom/client";
 
