@@ -1,0 +1,26 @@
+In section we are going to learn about the testing and importance of testing as a developer
+In general testing is not very important but when we go in big production company testing your 
+code is very important
+Types of testing(developer) -:
+
+1. Unit testing -> Testing in isolation
+2. Integration testing -> Lot of component work together for advance test cases
+3. E2e testing - End to End testing
+
+Setting up testing in our app -:
+ -> Install React testing library
+ -> Install jest
+ -> Install Babel dependencies
+ -> Configure Babel
+ -> Configure Parcel Config file to disable default babel transplilation
+ -> Jest -npx jest --init
+ -> Install jsdom library
+ -> Install @babel/preset/react -> To make run jsx in our test cases
+ -> Install @babel/preset/react inside my babel project
+ -> 
+
+Some additional notes are being written in Contact.test.js file for further explanation
+   
+
+ 
+
